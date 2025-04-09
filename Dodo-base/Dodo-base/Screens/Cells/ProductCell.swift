@@ -8,6 +8,13 @@ class ProductCell: UITableViewCell {
     
     static let reuseId = "ProductCell"
     
+    private var containerView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .white
+        $0.applyShadow(cornerRadius: 10)
+        return $0
+    }(UIView())
+    
     var verticalStackView: UIStackView = {
         var stackView = UIStackView.init()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +53,7 @@ class ProductCell: UITableViewCell {
         button.backgroundColor = .orange.withAlphaComponent(0.1) // сделать более прозрачно
         button.layer.cornerRadius = 20
         button.setTitleColor(.brown, for: .normal)
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        //button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         print("!!!!! contentEdgeInsets' was deprecated in iOS 15.0: This property is ignored when using UIButtonConfiguration")
         return button
     }()
@@ -85,26 +92,34 @@ class ProductCell: UITableViewCell {
 
 extension ProductCell {
     
-//    struct Layout {
-//        static let offset = 10
-//    }
+    //    struct Layout {
+    //        static let offset = 10
+    //    }
     
     func setupViews() {
         [nameLabel, detailLabel, priceButton].forEach({ verticalStackView.addArrangedSubview($0) })
-        [productImageView, verticalStackView].forEach { contentView.addSubview($0) }
+        [containerView].forEach({ contentView.addSubview($0) })
+        [productImageView, verticalStackView].forEach { containerView.addSubview($0) }
         
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            productImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            
+            productImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+            productImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            productImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+            productImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
             
             verticalStackView.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: 10),
-            verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            verticalStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+            verticalStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            verticalStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
         ])
     }
     
