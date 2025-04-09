@@ -4,6 +4,12 @@
 import UIKit
 
 final class MenuScreenVC: UIViewController {
+    let productService = ProductsService()
+    var products: [Product] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -11,6 +17,7 @@ final class MenuScreenVC: UIViewController {
         tableView.backgroundColor = .orange
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseId)
         return tableView
     }()
     
@@ -19,6 +26,11 @@ final class MenuScreenVC: UIViewController {
         
         setupViews()
         setupConstraints()
+        fetchProducts()
+    }
+    
+    private func fetchProducts() {
+        products = productService.fetchProducts()
     }
 }
     
@@ -42,11 +54,14 @@ extension MenuScreenVC {
 
 extension MenuScreenVC:  UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
+        let product = products[indexPath.row]
+        cell.update(product)
+        return cell
     }
     
     

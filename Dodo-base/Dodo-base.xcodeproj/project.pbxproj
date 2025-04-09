@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		30E65A232DA44DAC00B96A71 /* Dodo-base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dodo-base.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30E65A232DA44DAC00B96A71 /* Dodo-base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Dodo-base.app"; path = "/Users/igormungalov/Desktop/Dodo-base/Dodo-base/build/Debug-iphoneos/Dodo-base.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		30E65A352DA44DAD00B96A71 /* Exceptions for "Dodo-base" folder in "Dodo-base" target */ = {
+		30E65AB52DA6846800B96A71 /* Exceptions for "Dodo-base" folder in "Dodo-base" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -24,7 +24,7 @@
 		30E65A252DA44DAC00B96A71 /* Dodo-base */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				30E65A352DA44DAD00B96A71 /* Exceptions for "Dodo-base" folder in "Dodo-base" target */,
+				30E65AB52DA6846800B96A71 /* Exceptions for "Dodo-base" folder in "Dodo-base" target */,
 			);
 			path = "Dodo-base";
 			sourceTree = "<group>";
@@ -46,16 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				30E65A252DA44DAC00B96A71 /* Dodo-base */,
-				30E65A242DA44DAC00B96A71 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		30E65A242DA44DAC00B96A71 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				30E65A232DA44DAC00B96A71 /* Dodo-base.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,7 +99,7 @@
 			mainGroup = 30E65A1A2DA44DAC00B96A71;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 30E65A242DA44DAC00B96A71 /* Products */;
+			productRefGroup = 30E65A1A2DA44DAC00B96A71;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
