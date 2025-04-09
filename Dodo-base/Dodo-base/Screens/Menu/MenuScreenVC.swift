@@ -14,10 +14,12 @@ final class MenuScreenVC: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .orange
+        //tableView.backgroundColor = .orange
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseId)
+        tableView.registerCell(ProductCell.self)
+        tableView.separatorStyle = .none
+        tableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
         return tableView
     }()
     
@@ -58,7 +60,7 @@ extension MenuScreenVC:  UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
+        let cell = tableView.dequeuCell(indexPath) as ProductCell
         let product = products[indexPath.row]
         cell.update(product)
         return cell
