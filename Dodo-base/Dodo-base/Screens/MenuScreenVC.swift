@@ -3,7 +3,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class MenuScreenVC: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -22,7 +22,7 @@ final class ViewController: UIViewController {
     }
 }
     
-extension ViewController {
+extension MenuScreenVC {
     func setupViews() {
         view.addSubview(tableView)
     }
@@ -40,7 +40,7 @@ extension ViewController {
 
 
 
-extension ViewController:  UITableViewDataSource{
+extension MenuScreenVC:  UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
@@ -52,6 +52,6 @@ extension ViewController:  UITableViewDataSource{
     
 }
 
-extension ViewController: UITableViewDelegate {
+extension MenuScreenVC: UITableViewDelegate {
     
 }
