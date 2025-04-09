@@ -1,7 +1,4 @@
-//
-//  SceneDelegate.swift
-//  Dodo-base
-//
+
 //  Created by Игорь Мунгалов on 07.04.2025.
 //
 
