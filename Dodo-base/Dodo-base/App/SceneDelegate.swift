@@ -1,7 +1,4 @@
-//
-//  SceneDelegate.swift
-//  Dodo-base
-//
+
 //  Created by Игорь Мунгалов on 07.04.2025.
 //
 
@@ -17,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
        
-        window?.rootViewController = ViewController()
+        window?.rootViewController = MenuScreenVC()
         
         window?.makeKeyAndVisible()
      
